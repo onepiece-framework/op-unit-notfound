@@ -30,6 +30,46 @@ class Common
 	 */
 	use \OP_CORE;
 
+	/** Parse config from DSN format.
+	 *
+	 * @param	 string		 $dsn
+	 * @return	 array		 $config
+	 */
+	static function DSN($dsn)
+	{
+		//	...
+		if( $config = parse_url($dsn) ){
+			//	...
+			$config['prod']		 = $config['scheme'] ?? null;
+
+			//	...
+			if( $config['pass'] ?? null ){
+				$config['password'] = $config['pass'];
+			};
+
+			//	...
+			if( empty($config['port']) ){
+				$config['port']	 = '3306';
+			};
+
+			//	...
+			if( isset($config['query']) ){
+				$query = [];
+				parse_str($config['query'], $query);
+				foreach( $query as $key => $val ){
+					$config[$key] = $val;
+				};
+			};
+		};
+
+		//	...
+		unset($config['scheme']);
+		unset($config['pass']);
+
+		//	...
+		return $config;
+	}
+
 	/** Get configuration.
 	 *
 	 * @return	 array		 $config
