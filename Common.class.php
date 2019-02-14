@@ -32,27 +32,25 @@ class Common
 
 	/** Get configuration.
 	 *
-	 * @return string|number|boolean|array|object
+	 * @return	 array		 $config
 	 */
 	static private function _Config()
 	{
-		//	...
-		$config = \Env::Get(__CLASS__);
-
-		//	...
-		if( empty($config) ){
-			//	...
-			foreach( $config = include(__DIR__.'/config/db.php') as $key => $val ){
-				//	If not set.
-				if(!isset($config[$key]) ){
-					//	Set default value.
-					$config[$key] = $val;
-				};
-			};
+		//	Get config from Env.
+		if(!$config = \Env::Get('notfound') ){
+		//	$this->Unit('notfound')->Help('config');
+			return;
 		};
 
-		//	...
-		\Env::Set(__CLASS__, $config);
+		//	If given DSN.
+		if( $dsn = $config['dsn'] ?? null ){
+			//	Parse DSN.
+			$config = array_merge(self::DSN($dsn), $config);
+			$config['dsn'] = null;
+
+			//	Save parse result.
+			\Env::Set('notfound', $config);
+		};
 
 		//	...
 		return $config;
