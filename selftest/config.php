@@ -14,7 +14,6 @@ $configer = Unit::Instantiate('Selftest')->Configer();
 //	...
 include(__DIR__.'/database.php');
 include(__DIR__.'/user.php');
-include(__DIR__.'/privilege.php');
 
 //	Table
 include(__DIR__.'/t_host.php');
