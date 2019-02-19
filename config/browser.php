@@ -19,6 +19,7 @@ $configs['opera']   = 'OPR\/(\d+)\.(\d+)';
 $configs['chrome']  = 'Chrome\/(\d+)\.(\d+)';
 $configs['safari']  = 'Safari\/(\d+)\.(\d+)';
 $configs['firefox'] = 'Firefox\/(\d+)\.(\d+)';
+$configs['googlebot'] = 'Googlebot\/(\d+)\.(\d+)';
 
 //	...
 return $configs;
