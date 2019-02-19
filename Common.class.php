@@ -78,8 +78,8 @@ class Common
 	{
 		//	Get config from Env.
 		if(!$config = \Env::Get('notfound') ){
-		//	$this->Unit('notfound')->Help('config');
-			return;
+		//	$this->Unit('notfound')->Help('Setup');
+			throw new \Exception("See README.md at Setup section.");
 		};
 
 		//	If given DSN.
@@ -93,6 +93,13 @@ class Common
 		};
 
 		//	...
+		foreach( ['prod','host','user','password','database'] as $key ){
+			if( empty($config[$key]) ){
+				throw new \Exception("Config has not been set this value. ($key)");
+			};
+		};
+
+		//	...
 		return $config;
 	}
 
@@ -102,7 +109,7 @@ class Common
 	 */
 	static function DB()
 	{
-		//	...
+		/* @var $_DB \IF_DATABASE */
 		static $_DB;
 
 		//	...
