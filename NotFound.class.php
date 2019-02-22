@@ -90,9 +90,13 @@ class NotFound implements \IF_UNIT
 	{
 		//	...
 		$uri   = $_SERVER['REQUEST_URI'];
-		$parse = parse_url($uri);
-		$path  = $parse['path'];
-	//	$query = $parse['query'];
+
+		//	...
+		if( $pos  = strpos($uri, '?') ){
+			$path = substr($uri, 0, $pos);
+		}else{
+			$path = $uri;
+		}
 
 		//	...
 		$table = 't_uri';
