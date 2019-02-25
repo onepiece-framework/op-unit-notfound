@@ -15,6 +15,11 @@
  */
 namespace OP\UNIT\NOTFOUND;
 
+/** Used class.
+ *
+ */
+use OP\Env;
+
 /** Common
  *
  * @creation  2019-02-06
@@ -28,7 +33,7 @@ class Common
 	/** trait.
 	 *
 	 */
-	use \OP_CORE;
+	use \OP\OP_CORE;
 
 	/** Parse config from DSN format.
 	 *
@@ -77,7 +82,7 @@ class Common
 	static private function _Config()
 	{
 		//	Get config from Env.
-		if(!$config = \Env::Get('notfound') ){
+		if(!$config = Env::Get('notfound') ){
 		//	$this->Unit('notfound')->Help('Setup');
 			throw new \Exception("See README.md at Setup section.");
 		};
@@ -89,7 +94,7 @@ class Common
 			$config['dsn'] = null;
 
 			//	Save parse result.
-			\Env::Set('notfound', $config);
+			Env::Set('notfound', $config);
 		};
 
 		//	...
@@ -101,25 +106,6 @@ class Common
 
 		//	...
 		return $config;
-	}
-
-	/** Get IF_DATABASE object.
-	 *
-	 * @return \IF_DATABASE
-	 */
-	static function DB()
-	{
-		/* @var $_DB \IF_DATABASE */
-		static $_DB;
-
-		//	...
-		if(!$_DB ){
-			$_DB = \Unit::Instantiate('Database');
-			$_DB->Connect( self::_Config() );
-		};
-
-		//	...
-		return $_DB->isConnect() ? $_DB: false;
 	}
 
 	/** Generate common hash.

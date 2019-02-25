@@ -15,6 +15,11 @@
  */
 namespace OP\UNIT;
 
+/** Used class
+ *
+ */
+use OP\UNIT\NOTFOUND\Common;
+
 /** NotFound
  *
  * @creation  2019-01-29
@@ -23,26 +28,20 @@ namespace OP\UNIT;
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
-class NotFound implements \IF_UNIT
+class NotFound implements \OP\IF_UNIT
 {
 	/** trait.
 	 *
 	 */
-	use \OP_CORE;
-
-	/** Debug.
-	 *
-	 * @var array
-	 */
-	static private $_debug;
+	use \OP\OP_CORE, \OP\OP_UNIT;
 
 	/** Will execute automatically.
 	 *
 	 */
-	static function Auto()
+	function Auto()
 	{
 		//	...
-		if( $DB = NOTFOUND\Common::DB() ){
+		if( $DB = $this->_DB() ){
 			$host = self::_Host( $DB );
 			$uri  = self::_URI(  $DB );
 			$ua   = self::_UA(   $DB );
@@ -50,12 +49,37 @@ class NotFound implements \IF_UNIT
 		};
 	}
 
+	/** Get IF_DATABASE object.
+	 *
+	 * @return \IF_DATABASE
+	 */
+	private function _DB()
+	{
+		/* @var $_DB \IF_DATABASE */
+		static $_DB;
+
+		//	...
+		if( $_DB === null ){
+			$_DB = $this->Unit('Database');
+
+			//	...
+			if( get_class($_DB) === 'OP\Ghost' ){
+				$_DB = false;
+			}else{
+				$_DB->Connect( Common::_Config() );
+			};
+		};
+
+		//	...
+		return $_DB;
+	}
+
 	/** Host name
 	 *
 	 * @param	\IF_DATABASE $DB
 	 * @return	 int		 $ai
 	 */
-	static private function _Host( \IF_DATABASE $DB ):int
+	private function _Host( \IF_DATABASE $DB ):int
 	{
 		//	...
 		$table = 't_host';
@@ -86,7 +110,7 @@ class NotFound implements \IF_UNIT
 	 * @param	\IF_DATABASE $DB
 	 * @return	 int		 $ai
 	 */
-	static private function _URI( \IF_DATABASE $DB ):int
+	private function _URI( \IF_DATABASE $DB ):int
 	{
 		//	...
 		$uri   = $_SERVER['REQUEST_URI'];
@@ -125,7 +149,7 @@ class NotFound implements \IF_UNIT
 	 * @param	\IF_DATABASE $DB
 	 * @return	 int		 $ai
 	 */
-	static private function _UA( \IF_DATABASE $DB ):int
+	private function _UA( \IF_DATABASE $DB ):int
 	{
 		//	...
 		$ua = $_SERVER['HTTP_USER_AGENT'] ?? '';
@@ -181,7 +205,7 @@ class NotFound implements \IF_UNIT
 	 * @param	 string		 $ua
 	 * @return	 int|null	 $ai
 	 */
-	static private function _OS( $ua_ai, $ua )
+	private function _OS( $ua_ai, $ua )
 	{
 		//	...
 		$table = 't_ua_os';
@@ -229,7 +253,7 @@ class NotFound implements \IF_UNIT
 	 * @param	 string		 $ua
 	 * @return	 int|null	 $ai
 	 */
-	static private function _Browser( $ua_ai, $ua )
+	private function _Browser( $ua_ai, $ua )
 	{
 		//	...
 		$table = 't_ua_browser';
@@ -279,7 +303,7 @@ class NotFound implements \IF_UNIT
 	 * @param	 string		 $ua
 	 * @return	 int		 $count
 	 */
-	static private function _NotFound( \IF_DATABASE $DB, int $host, int $uri, int $ua ):int
+	private function _NotFound( \IF_DATABASE $DB, int $host, int $uri, int $ua ):int
 	{
 		//	...
 		$table = 't_notfound';
@@ -321,32 +345,9 @@ class NotFound implements \IF_UNIT
 	/** Will execute automatically of Admin.
 	 *
 	 */
-	static function Admin()
+	function Admin()
 	{
 		include_once(__DIR__.'/admin/Admin.class.php');
 		NOTFOUND\Admin::Auto();
-	}
-
-	/** For developers.
-	 *
-	 *
-	 * @see \IF_UNIT::Help()
-	 * @param	 string		 $topic
-	 */
-	function Help($topic=null)
-	{
-		echo '<pre><code>';
-		echo file_get_contents(__DIR__.'/README.md');
-		echo '</code></pre>';
-	}
-
-	/** For developers.
-	 *
-	 * @see \IF_UNIT::Debug()
-	 * @param	 string		 $topic
-	 */
-	function Debug($topic=null)
-	{
-		D( self::$_debug );
 	}
 }
