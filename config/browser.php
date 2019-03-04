@@ -14,6 +14,7 @@
 $configs = [];
 
 //	...
+$configs['kinza']     = 'Kinza\/(\d+)\.(\d+)';
 $configs['cfnetwork'] = 'CFNetwork\/(\d+)\.(\d+)';
 $configs['vivaldi']   = 'Vivaldi\/(\d+)\.(\d+)';
 $configs['opera']     = 'OPR\/(\d+)\.(\d+)';
