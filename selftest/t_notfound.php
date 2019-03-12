@@ -8,10 +8,10 @@
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
-/* @var $configer \OP\UNIT\SELFTEST\Configer */
+/* @var $app \OP\UNIT\App */
 
 //  Table configuration.
-$configer->Set('table', [
+$app->Unit('selftest')->Config()->Set('table', [
 	'name'    => 't_notfound',
 	'charset' => 'utf8',
 	'collate' => 'utf8mb4_general_ci',
@@ -19,7 +19,7 @@ $configer->Set('table', [
 ]);
 
 //  Auto incrment id.
-$configer->Set('column', [
+$app->Unit('selftest')->Config()->Set('column', [
 	'name'    =>  'ai',
 	/*
 	'type'    => 'int',
@@ -32,7 +32,7 @@ $configer->Set('column', [
 ]);
 
 //  Count of access.
-$configer->Set('column', [
+$app->Unit('selftest')->Config()->Set('column', [
 	'name'     => 'count',
 	'type'     => 'int',
 	'length'   =>  10,
@@ -42,7 +42,7 @@ $configer->Set('column', [
 ]);
 
 //  Reference of t_host.ai.
-$configer->Set('column', [
+$app->Unit('selftest')->Config()->Set('column', [
 	'name'      => 'host',
 	'type'      => 'int',
 	'unsigned'  =>  true,
@@ -52,7 +52,7 @@ $configer->Set('column', [
 ]);
 
 //  Reference of t_uri.ai.
-$configer->Set('column', [
+$app->Unit('selftest')->Config()->Set('column', [
 	'name'      => 'uri',
 	'type'      => 'int',
 	'unsigned'  =>  true,
@@ -62,7 +62,7 @@ $configer->Set('column', [
 ]);
 
 //  Reference of t_ua.ai.
-$configer->Set('column', [
+$app->Unit('selftest')->Config()->Set('column', [
 	'name'      => 'ua',
 	'type'      => 'int',
 	'unsigned'  =>  true,
@@ -72,14 +72,14 @@ $configer->Set('column', [
 ]);
 
 //  Add timestamp.
-$configer->Set('column', [
+$app->Unit('selftest')->Config()->Set('column', [
 	'name'    => 'timestamp',
 	'type'    => 'timestamp',
 	'comment' => 'On update current timestamp.',
 ]);
 
 //  Add auto incrment id configuration.
-$configer->Set('index', [
+$app->Unit('selftest')->Config()->Set('index', [
 	'name'    => 'ai',
 	'type'    => 'ai',
 	'column'  => 'ai',
@@ -87,7 +87,7 @@ $configer->Set('index', [
 ]);
 
 //  Unique index.
-$configer->Set('index', [
+$app->Unit('selftest')->Config()->Set('index', [
 	'name'    => 'host-uri-ua',
 	'type'    => 'unique',
 	/*
@@ -99,7 +99,7 @@ $configer->Set('index', [
 ]);
 
 //  Use to GROUP.
-$configer->Set('index', [
+$app->Unit('selftest')->Config()->Set('index', [
 	'name'    => 'uri',
 	'type'    => 'index',
 	'column'  => 'uri',
@@ -107,7 +107,7 @@ $configer->Set('index', [
 ]);
 
 //  Always use WHERE.
-$configer->Set('index', [
+$app->Unit('selftest')->Config()->Set('index', [
 	'name'    => 'host',
 	'type'    => 'index',
 	'column'  => 'host',
@@ -115,7 +115,7 @@ $configer->Set('index', [
 ]);
 
 //  ...
-$configer->Set('index', [
+$app->Unit('selftest')->Config()->Set('index', [
 	'name'    => 'ua',
 	'type'    => 'index',
 	'column'  => 'ua',
