@@ -18,6 +18,9 @@ namespace OP\UNIT\NOTFOUND;
 /** Used class
  *
  */
+use OP\OP_CORE;
+use OP\OP_UNIT;
+use OP\IF_UNIT;
 use OP\Env;
 use OP\Notice;
 use OP\Cookie;
@@ -30,12 +33,12 @@ use OP\Cookie;
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
-class Admin implements \OP\IF_UNIT
+class Admin implements IF_UNIT
 {
 	/** trait.
 	 *
 	 */
-	use \OP\OP_CORE, \OP\OP_UNIT;
+	use OP_CORE, OP_UNIT;
 
 	/** Debug.
 	 *
@@ -76,7 +79,7 @@ class Admin implements \OP\IF_UNIT
 		//	Save selftest result.
 		Cookie::Set(__METHOD__, true, 60*60*24);
 
-		/* @var $form \IF_FORM */
+		/* @var $form \OP\UNIT\Form */
 		$form = self::Form();
 
 		//	...
@@ -88,7 +91,7 @@ class Admin implements \OP\IF_UNIT
 	 */
 	static function Form()
 	{
-		/* @var $form \IF_FORM */
+		/* @var $form \OP\UNIT\Form */
 		static $form;
 
 		//	...

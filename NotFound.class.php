@@ -18,6 +18,10 @@ namespace OP\UNIT;
 /** Used class
  *
  */
+use OP\OP_CORE;
+use OP\OP_UNIT;
+use OP\IF_UNIT;
+use OP\IF_DATABASE;
 use OP\UNIT\NOTFOUND\Common;
 
 /** NotFound
@@ -28,12 +32,12 @@ use OP\UNIT\NOTFOUND\Common;
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
-class NotFound implements \OP\IF_UNIT
+class NotFound implements IF_UNIT
 {
 	/** trait.
 	 *
 	 */
-	use \OP\OP_CORE, \OP\OP_UNIT;
+	use OP_CORE, OP_UNIT;
 
 	/** Will execute automatically.
 	 *
@@ -49,13 +53,13 @@ class NotFound implements \OP\IF_UNIT
 		};
 	}
 
-	/** Get IF_DATABASE object.
+	/** Get Database object.
 	 *
-	 * @return \IF_DATABASE
+	 * @return  Database
 	 */
 	private function _DB()
 	{
-		/* @var $_DB \IF_DATABASE */
+		/* @var $_DB Database */
 		static $_DB;
 
 		//	...
@@ -76,10 +80,10 @@ class NotFound implements \OP\IF_UNIT
 
 	/** Host name
 	 *
-	 * @param	\IF_DATABASE $DB
-	 * @return	 int		 $ai
+	 * @param   Database  $DB
+	 * @return  int       $ai
 	 */
-	private function _Host( \IF_DATABASE $DB ):int
+	private function _Host(Database $DB ):int
 	{
 		//	...
 		$table = 't_host';
@@ -107,10 +111,10 @@ class NotFound implements \OP\IF_UNIT
 
 	/** URI
 	 *
-	 * @param	\IF_DATABASE $DB
-	 * @return	 int		 $ai
+	 * @param   Database  $DB
+	 * @return  int       $ai
 	 */
-	private function _URI( \IF_DATABASE $DB ):int
+	private function _URI(IF_DATABASE $DB ):int
 	{
 		//	...
 		$uri   = $_SERVER['REQUEST_URI'];
@@ -146,10 +150,10 @@ class NotFound implements \OP\IF_UNIT
 
 	/** User agent
 	 *
-	 * @param	\IF_DATABASE $DB
-	 * @return	 int		 $ai
+	 * @param   Database  $DB
+	 * @return  int       $ai
 	 */
-	private function _UA( \IF_DATABASE $DB ):int
+	private function _UA(IF_DATABASE $DB ):int
 	{
 		//	...
 		$ua = $_SERVER['HTTP_USER_AGENT'] ?? '';
@@ -297,13 +301,13 @@ class NotFound implements \OP\IF_UNIT
 
 	/** NotFound
 	 *
-	 * @param	\IF_DATABASE $DB
-	 * @param	 string		 $host
-	 * @param	 string		 $uri
-	 * @param	 string		 $ua
-	 * @return	 int		 $count
+	 * @param   Database  $DB
+	 * @param   string    $host
+	 * @param   string    $uri
+	 * @param   string    $ua
+	 * @return  int       $count
 	 */
-	private function _NotFound( \IF_DATABASE $DB, int $host, int $uri, int $ua ):int
+	private function _NotFound(IF_DATABASE $DB, int $host, int $uri, int $ua ):int
 	{
 		//	...
 		$table = 't_notfound';
