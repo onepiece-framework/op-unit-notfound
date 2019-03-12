@@ -8,10 +8,10 @@
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
-/* @var $configer \OP\UNIT\SELFTEST\Configer */
+/* @var $app \OP\UNIT\App */
 
 //  Table configuration.
-$configer->Set('table', [
+$app->Unit('selftest')->Config()->Set('table', [
 	'name'    => 't_uri',
 	'charset' => 'utf8',
 	'collate' => 'utf8mb4_general_ci',
@@ -19,7 +19,7 @@ $configer->Set('table', [
 ]);
 
 //  Auto incrment id.
-$configer->Set('column', [
+$app->Unit('selftest')->Config()->Set('column', [
 	'name'    =>  'ai',
 	/*
 	'type'    => 'int',
@@ -32,7 +32,7 @@ $configer->Set('column', [
 ]);
 
 //  Hash key.
-$configer->Set('column', [
+$app->Unit('selftest')->Config()->Set('column', [
 	'name'    => 'hash',
 	'type'    => 'char',
 	'length'  =>     10,
@@ -43,7 +43,7 @@ $configer->Set('column', [
 ]);
 
 //  Request URI.
-$configer->Set('column', [
+$app->Unit('selftest')->Config()->Set('column', [
 	'name'    => 'uri',
 	'type'    => 'text',
 	'null'    =>  false,
@@ -52,14 +52,14 @@ $configer->Set('column', [
 ]);
 
 //  Timestamp.
-$configer->Set('column', [
+$app->Unit('selftest')->Config()->Set('column', [
 	'name'    => 'timestamp',
 	'type'    => 'timestamp',
 	'comment' => 'On update current timestamp.',
 ]);
 
 //  Auto incrment id.
-$configer->Set('index', [
+$app->Unit('selftest')->Config()->Set('index', [
 	'name'    => 'ai',
 	'type'    => 'ai',
 	'column'  => 'ai',
@@ -67,7 +67,7 @@ $configer->Set('index', [
 ]);
 
 //  Search unique index key.
-$configer->Set('index', [
+$app->Unit('selftest')->Config()->Set('index', [
 	'name'    => 'hash',
 	'type'    => 'unique',
 	'column'  => 'hash',
