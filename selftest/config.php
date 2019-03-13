@@ -8,11 +8,12 @@
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
-//	User
-include(__DIR__.'/user.php');
+/* @var $configer \OP\UNIT\SELFTEST\Configer */
+$configer = Unit::Instantiate('Selftest')->Configer();
 
-//	Database
+//	...
 include(__DIR__.'/database.php');
+include(__DIR__.'/user.php');
 
 //	Table
 include(__DIR__.'/t_host.php');
@@ -21,3 +22,6 @@ include(__DIR__.'/t_ua.php');
 include(__DIR__.'/t_ua_os.php');
 include(__DIR__.'/t_ua_browser.php');
 include(__DIR__.'/t_notfound.php');
+
+//	...
+return $configer->Get();

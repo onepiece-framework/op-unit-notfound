@@ -15,16 +15,6 @@
  */
 namespace OP\UNIT\NOTFOUND;
 
-/** Used class
- *
- */
-use OP\OP_CORE;
-use OP\OP_UNIT;
-use OP\IF_UNIT;
-use OP\Env;
-use OP\Notice;
-use OP\Cookie;
-
 /** Admin
  *
  * @creation  2019-02-04
@@ -33,12 +23,12 @@ use OP\Cookie;
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
-class Admin implements IF_UNIT
+class Admin implements \IF_UNIT
 {
 	/** trait.
 	 *
 	 */
-	use OP_CORE, OP_UNIT;
+	use \OP_CORE;
 
 	/** Debug.
 	 *
@@ -54,11 +44,11 @@ class Admin implements IF_UNIT
 		//	...
 		if(!$db = Common::DB() ){
 			//	Throw away connection error notice.
-			$notice = Notice::Pop();
+			$notice = \Notice::Pop();
 
 			//	...
 			D($notice['message']);
-			D(Env::Get('notfound'));
+			D(\Env::Get('notfound'));
 
 			//	...
 			if( include(__DIR__.'/../selftest/Selftest.class.php') ){
@@ -70,16 +60,16 @@ class Admin implements IF_UNIT
 		};
 
 		//	...
-		if(!$io = Cookie::Get(__METHOD__) ){
+		if(!$io = \Cookie::Get(__METHOD__) ){
 			if(!$io = self::Selftest($db) ){
 				return $io;
 			};
 		};
 
 		//	Save selftest result.
-		Cookie::Set(__METHOD__, true, 60*60*24);
+		\Cookie::Set(__METHOD__, true, 60*60*24);
 
-		/* @var $form \OP\UNIT\Form */
+		/* @var $form \IF_FORM */
 		$form = self::Form();
 
 		//	...
@@ -91,16 +81,16 @@ class Admin implements IF_UNIT
 	 */
 	static function Form()
 	{
-		/* @var $form \OP\UNIT\Form */
+		/* @var $form \IF_FORM */
 		static $form;
 
 		//	...
 		if(!$form ){
-			$form = \OP\Unit::Instantiate('Form');
+			$form = \Unit::Instantiate('Form');
 			$form->Config(__DIR__.'/config.form.php');
 
 			//	...
-			if( Env::isAdmin() ){
+			if( \Env::isAdmin() ){
 				if(!$form->Test() ){
 					D('$form->Test() was failed.');
 				};
@@ -173,7 +163,7 @@ class Admin implements IF_UNIT
 		if( $date_en ){ $config['where'][] = "t_notfound.timestamp <= $date_en 23:59:60"; }; // 60 is Leap seconds.
 
 		//	...
-		if( Env::isAdmin() ){
+		if( \Env::isAdmin() ){
 			self::$_debug['config'][] = $config;
 		};
 
@@ -219,7 +209,7 @@ class Admin implements IF_UNIT
 	/** For developers.
 	 *
 	 *
-	 * @see \OP\IF_UNIT::Help()
+	 * @see \IF_UNIT::Help()
 	 * @param	 string		 $topic
 	 */
 	function Help($topic=null)
@@ -231,7 +221,7 @@ class Admin implements IF_UNIT
 
 	/** For developers.
 	 *
-	 * @see \OP\IF_UNIT::Debug()
+	 * @see \IF_UNIT::Debug()
 	 * @param	 string		 $topic
 	 */
 	function Debug($topic=null)

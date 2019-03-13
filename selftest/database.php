@@ -8,20 +8,19 @@
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
-/* @var $app \OP\UNIT\App */
-
+/* @var $configer \OP\UNIT\SELFTEST\Configer */
 //	...
-$config = $app->Env()->Get('notfound');
+$config = Env::Get('notfound');
 
 //  DSN configuration.
-$app->Unit('selftest')->Config()->DSN([
+$configer->DSN([
 	'host'     => $config['host'] ?? 'localhost',
 	'product'  => $config['prod'] ?? 'mysql',
 	'port'     => $config['port'] ?? '3306',
 ]);
 
 //  Database configuration.
-$app->Unit('selftest')->Config()->Database([
+$configer->Database([
 	'name'     => $config['database'] ?? 'onepiece',
 	'charset'  => $config['charset']  ?? 'utf8',
 	'collate'  => $config['collate']  ?? 'utf8mb4_general_ci',
