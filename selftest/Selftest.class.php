@@ -23,12 +23,12 @@ namespace OP\UNIT\NOTFOUND;
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
-class Selftest
+class Selftest implements \IF_UNIT
 {
 	/** trait.
 	 *
 	 */
-	use \OP\OP_CORE;
+	use \OP_CORE;
 
 	/** Will execute automatically of Selftest.
 	 *
@@ -36,13 +36,44 @@ class Selftest
 	static function Auto()
 	{
 		//	...
-		include(__DIR__.'/config.php');
+		if(!\Unit::Load('selftest') ){
+			return;
+		};
+
+		/* @var $selftest \OP\UNIT\Selftest */
+		if( $io = $selftest = \Unit::Instantiate('Selftest') ){
+			$io = $selftest->Auto(__DIR__.'/config.php');
+		};
 
 		//	...
-		$selftest = self::Unit('selftest');
-		$selftest->Auto();
+		if( ($io === false) or ($_GET['debug'] ?? null) ){
+			$selftest->Debug($_GET['debug'] ?? '');
+		};
 
 		//	...
-		return $selftest->isResult();
+		return $io;
+	}
+
+	/** For developers.
+	 *
+	 *
+	 * @see \IF_UNIT::Help()
+	 * @param	 string		 $topic
+	 */
+	function Help($topic=null)
+	{
+		echo '<pre><code>';
+		echo file_get_contents(__DIR__.'/README.md');
+		echo '</code></pre>';
+	}
+
+	/** For developers.
+	 *
+	 * @see \IF_UNIT::Debug()
+	 * @param	 string		 $topic
+	 */
+	function Debug($topic=null, $selftest=null)
+	{
+
 	}
 }

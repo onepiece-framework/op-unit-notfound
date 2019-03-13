@@ -8,10 +8,10 @@
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
-/* @var $app \OP\UNIT\App */
+/* @var $configer \OP\UNIT\SELFTEST\Configer */
 
 //  Table configuration.
-$app->Unit('selftest')->Config()->Set('table', [
+$configer->Set('table', [
 	'name'    => 't_host',
 	'charset' => 'utf8',
 	'collate' => 'utf8mb4_general_ci',
@@ -19,7 +19,7 @@ $app->Unit('selftest')->Config()->Set('table', [
 ]);
 
 //  Auto incrment id.
-$app->Unit('selftest')->Config()->Set('column', [
+$configer->Set('column', [
 	'name'    =>  'ai',
 	/*
 	'type'    => 'int',
@@ -32,7 +32,7 @@ $app->Unit('selftest')->Config()->Set('column', [
 ]);
 
 //  Hash key.
-$app->Unit('selftest')->Config()->Set('column', [
+$configer->Set('column', [
 	'name'    => 'hash',
 	'type'    => 'char',
 	'length'  =>     10,
@@ -43,7 +43,7 @@ $app->Unit('selftest')->Config()->Set('column', [
 ]);
 
 //  Host name.
-$app->Unit('selftest')->Config()->Set('column', [
+$configer->Set('column', [
 	'name'    => 'host',
 	'type'    => 'text',
 	'null'    =>  false,
@@ -52,14 +52,14 @@ $app->Unit('selftest')->Config()->Set('column', [
 ]);
 
 //  Timestamp.
-$app->Unit('selftest')->Config()->Set('column', [
+$configer->Set('column', [
 	'name'    => 'timestamp',
 	'type'    => 'timestamp',
 	'comment' => 'On update current timestamp.',
 ]);
 
 //  Auto incrment id.
-$app->Unit('selftest')->Config()->Set('index', [
+$configer->Set('index', [
 	'name'    => 'ai',
 	'type'    => 'ai',
 	'column'  => 'ai',
@@ -67,7 +67,7 @@ $app->Unit('selftest')->Config()->Set('index', [
 ]);
 
 //  Search unique index key.
-$app->Unit('selftest')->Config()->Set('index', [
+$configer->Set('index', [
 	'name'    => 'hash',
 	'type'    => 'unique',
 	'column'  => 'hash',

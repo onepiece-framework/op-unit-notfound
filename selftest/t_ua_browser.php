@@ -8,10 +8,10 @@
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
-/* @var $app \OP\UNIT\App */
+/* @var $configer \OP\UNIT\SELFTEST\Configer */
 
 //  Table configuration.
-$app->Unit('selftest')->Config()->Set('table', [
+$configer->Set('table', [
 	'name'    => 't_ua_browser',
 	'charset' => 'utf8',
 	'collate' => 'utf8mb4_general_ci',
@@ -19,14 +19,14 @@ $app->Unit('selftest')->Config()->Set('table', [
 ]);
 
 //  Auto incrment id.
-$app->Unit('selftest')->Config()->Set('column', [
+$configer->Set('column', [
 	'name'    =>  'ai',
 	'ai'      =>  true,
 	'comment' => 'Auto increment id.',
 ]);
 
 //  Reference of t_ua.ai.
-$app->Unit('selftest')->Config()->Set('column', [
+$configer->Set('column', [
 	'name'      => 'ua',
 	'type'      => 'int',
 	'unsigned'  =>  true,
@@ -37,17 +37,17 @@ $app->Unit('selftest')->Config()->Set('column', [
 ]);
 
 //  Browser name.
-$app->Unit('selftest')->Config()->Set('column', [
+$configer->Set('column', [
 	'name'    => 'browser',
 	'type'    => 'enum',
-	'length'  => 'ie, edge, chrome, firefox, safari, opera, vivaldi, googlebot, cfnetwork, kinza',
+	'length'  => 'ie, edge, chrome, firefox, safari, opera, vivaldi, googlebot, cfnetwork',
 	'null'    =>  true,
 	'collate' => 'ascii_general_ci',
 	'comment' => 'browser name. Unknown browser is null.',
 ]);
 
 //  Browser version.
-$app->Unit('selftest')->Config()->Set('column', [
+$configer->Set('column', [
 	'name'		 => 'version',
 	'type'		 => 'decimal',
 	'length'	 => '5,2',
@@ -57,7 +57,7 @@ $app->Unit('selftest')->Config()->Set('column', [
 ]);
 
 //  Timestamp.
-$app->Unit('selftest')->Config()->Set('column', [
+$configer->Set('column', [
 	'name'    => 'timestamp',
 	'type'    => 'timestamp',
 	'comment' => 'On update current timestamp.',
