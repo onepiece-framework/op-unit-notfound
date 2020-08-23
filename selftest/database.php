@@ -1,16 +1,24 @@
 <?php
-/**
- * unit-notfound:/selftest/database.php
+/** op-unit-notfound:/selftest/database.php
  *
- * @creation  2019-02-02
+ * @created   2019-02-02
  * @version   1.0
- * @package   unit-notfound
+ * @package   op-unit-notfound
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
+
+/** namespace
+ *
+ */
+namespace OP;
+
+/** use
+ *
+ */
+
 /* @var $configer \OP\UNIT\SELFTEST\Configer */
-//	...
-$config = Env::Get('notfound');
+$config = Config::Get('notfound');
 
 //  DSN configuration.
 $configer->DSN([

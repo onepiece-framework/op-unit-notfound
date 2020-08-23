@@ -1,13 +1,22 @@
 <?php
-/**
- * unit-notfound:/selftest/t_uri.php
+/** op-unit-notfound:/selftest/t_uri.php
  *
  * @creation  2019-02-05
  * @version   1.0
- * @package   unit-notfound
+ * @package   op-unit-notfound
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
+
+/** namespace
+ *
+ */
+namespace OP;
+
+/** use
+ *
+ */
+
 /* @var $configer \OP\UNIT\SELFTEST\Configer */
 
 //  Table configuration.

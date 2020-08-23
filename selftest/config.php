@@ -1,15 +1,24 @@
 <?php
-/**
- * unit-notfound:/selftest/config.php
+/** op-unit-notfound:/selftest/config.php
  *
- * @creation  2019-02-02
+ * @created   2019-02-02
  * @version   1.0
- * @package   unit-notfound
+ * @package   op-unit-notfound
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
+
+/** namespace
+ *
+ */
+namespace OP;
+
+/** use
+ *
+ */
+
 /* @var $configer \OP\UNIT\SELFTEST\Configer */
-$configer = Unit::Instantiate('Selftest')->Configer();
+$configer = Unit('Selftest')->Configer();
 
 //	...
 include(__DIR__.'/database.php');

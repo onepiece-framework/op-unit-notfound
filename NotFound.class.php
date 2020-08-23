@@ -1,39 +1,40 @@
 <?php
-/**
- * unit-notfound:/NotFound.class.php
+/** op-unit-notfound:/NotFound.class.php
  *
- * @creation  2019-01-29
+ * @created   2019-01-29
  * @version   1.0
- * @package   unit-notfound
+ * @package   op-unit-notfound
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
 
 /** namespace
  *
- * @creation  2019-01-29
  */
 namespace OP\UNIT;
 
-/** Used class
+/** use
  *
  */
+use OP\OP_CORE;
+use OP\IF_UNIT;
+use OP\IF_DATABASE;
 use OP\UNIT\NOTFOUND\Admin;
 
 /** NotFound
  *
- * @creation  2019-01-29
+ * @created   2019-01-29
  * @version   1.0
- * @package   unit-notfound
+ * @package   op-unit-notfound
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
-class NotFound implements \IF_UNIT
+class NotFound implements IF_UNIT
 {
 	/** trait.
 	 *
 	 */
-	use \OP_CORE;
+	use OP_CORE;
 
 	/** Debug.
 	 *
@@ -57,10 +58,10 @@ class NotFound implements \IF_UNIT
 
 	/** Host name
 	 *
-	 * @param	\IF_DATABASE $DB
+	 * @param	 IF_DATABASE $DB
 	 * @return	 int		 $ai
 	 */
-	static private function _Host( \IF_DATABASE $DB ):int
+	static private function _Host( IF_DATABASE $DB ):int
 	{
 		//	...
 		$table = 't_host';
@@ -88,10 +89,10 @@ class NotFound implements \IF_UNIT
 
 	/** URI
 	 *
-	 * @param	\IF_DATABASE $DB
+	 * @param	 IF_DATABASE $DB
 	 * @return	 int		 $ai
 	 */
-	static private function _URI( \IF_DATABASE $DB ):int
+	static private function _URI( IF_DATABASE $DB ):int
 	{
 		//	...
 		$uri   = $_SERVER['REQUEST_URI'];
@@ -127,10 +128,10 @@ class NotFound implements \IF_UNIT
 
 	/** User agent
 	 *
-	 * @param	\IF_DATABASE $DB
+	 * @param	 IF_DATABASE $DB
 	 * @return	 int		 $ai
 	 */
-	static private function _UA( \IF_DATABASE $DB ):int
+	static private function _UA( IF_DATABASE $DB ):int
 	{
 		//	...
 		$ua = $_SERVER['HTTP_USER_AGENT'] ?? '';
@@ -278,13 +279,13 @@ class NotFound implements \IF_UNIT
 
 	/** NotFound
 	 *
-	 * @param	\IF_DATABASE $DB
+	 * @param	 IF_DATABASE $DB
 	 * @param	 string		 $host
 	 * @param	 string		 $uri
 	 * @param	 string		 $ua
 	 * @return	 int		 $count
 	 */
-	static private function _NotFound( \IF_DATABASE $DB, int $host, int $uri, int $ua ):int
+	static private function _NotFound( IF_DATABASE $DB, int $host, int $uri, int $ua ):int
 	{
 		//	...
 		$table = 't_notfound';
@@ -330,28 +331,5 @@ class NotFound implements \IF_UNIT
 	{
 		include_once(__DIR__.'/admin/Admin.class.php');
 		Admin::Auto();
-	}
-
-	/** For developers.
-	 *
-	 *
-	 * @see \IF_UNIT::Help()
-	 * @param	 string		 $topic
-	 */
-	function Help($topic=null)
-	{
-		echo '<pre><code>';
-		echo file_get_contents(__DIR__.'/README.md');
-		echo '</code></pre>';
-	}
-
-	/** For developers.
-	 *
-	 * @see \IF_UNIT::Debug()
-	 * @param	 string		 $topic
-	 */
-	function Debug($topic=null)
-	{
-		D( self::$_debug );
 	}
 }
