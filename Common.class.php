@@ -1,25 +1,31 @@
 <?php
-/**
- * unit-notfound:/Common.class.php
+/** op-unit-notfound:/Common.class.php
  *
- * @creation  2019-02-06
+ * @created   2019-02-06
  * @version   1.0
- * @package   unit-notfound
+ * @package   op-unit-notfound
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
 
 /** namespace
  *
- * @creation  2019-02-06
  */
 namespace OP\UNIT\NOTFOUND;
 
+/** use
+ *
+ */
+use OP\OP_CORE;
+use OP\IF_DATABASE;
+use OP\Config;
+use function OP\Unit;
+
 /** Common
  *
- * @creation  2019-02-06
+ * @created   2019-02-06
  * @version   1.0
- * @package   unit-notfound
+ * @package   op-unit-notfound
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
@@ -28,7 +34,7 @@ class Common
 	/** trait.
 	 *
 	 */
-	use \OP_CORE;
+	use OP_CORE;
 
 	/** Parse config from DSN format.
 	 *
@@ -77,7 +83,7 @@ class Common
 	static private function _Config()
 	{
 		//	Get config from Env.
-		if(!$config = \Env::Get('notfound') ){
+		if(!$config = Config::Get('notfound') ){
 		//	$this->Unit('notfound')->Help('Setup');
 			throw new \Exception("See README.md at Setup section.");
 		};
@@ -89,7 +95,7 @@ class Common
 			$config['dsn'] = null;
 
 			//	Save parse result.
-			\Env::Set('notfound', $config);
+			Config::Set('notfound', $config);
 		};
 
 		//	...
@@ -105,16 +111,16 @@ class Common
 
 	/** Get IF_DATABASE object.
 	 *
-	 * @return \IF_DATABASE
+	 * @return IF_DATABASE
 	 */
 	static function DB()
 	{
-		/* @var $_DB \IF_DATABASE */
+		/* @var $_DB IF_DATABASE */
 		static $_DB;
 
 		//	...
 		if(!$_DB ){
-			$_DB = \Unit::Instantiate('Database');
+			$_DB = Unit('Database');
 			$_DB->Connect( self::_Config() );
 		};
 

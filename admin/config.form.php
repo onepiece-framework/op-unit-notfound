@@ -1,13 +1,22 @@
 <?php
-/**
- * unit-notfound:/config.form.php
+/** op-unit-notfound:/config.form.php
  *
- * @creation  2019-01-30
+ * @created   2019-01-30
  * @version   1.0
- * @package   unit-notfound
+ * @package   op-unit-notfound
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
+
+/** namespace
+ *
+ */
+namespace OP;
+
+/** use
+ *
+ */
+
 //	...
 $form = [];
 $form['name'] = 'notfound';
@@ -40,7 +49,7 @@ $input = [];
 $input['name']  = 'date-st';
 $input['type']  = 'date';
 $input['label'] = 'date-st';
-$input['value'] = Time::Date('-30 days');
+$input['value'] = Env::Timestamp(false, '-30 days');
 $input['required'] = true;
 $form['input'][] = $input;
 
@@ -49,7 +58,7 @@ $input = [];
 $input['name']  = 'date-en';
 $input['type']  = 'date';
 $input['label'] = 'date-en';
-$input['value'] = Time::Date();
+$input['value'] = Env::Timestamp();
 $input['required'] = true;
 $form['input'][] = $input;
 

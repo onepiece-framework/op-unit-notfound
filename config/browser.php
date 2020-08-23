@@ -10,6 +10,16 @@
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
+
+/** namespace
+ *
+ */
+namespace OP;
+
+/** use
+ *
+ */
+
 //	...
 $configs = [];
 

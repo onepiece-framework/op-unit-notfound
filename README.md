@@ -1,35 +1,36 @@
 Unit of NotFound
 ===
 
- Save of 404 error URL.
-
-# Setup
-
- Set configuration to Env.
-
-```config.php
-<?php
-$this->Env()->Set('notfound', [
-    'dsn' => 'mysql://notfound:password@localhost:3306?database=onepiece&charset=utf8',
-]);
-```
+ Saving the 404 error URL.
 
 # Usage
 
- Add to 404.php.
+ Database initialization.
 
-```
-<?php
-if( Unit::Load('NotFound') ){
-    OP\UNIT\NotFound::Auto();
-};
+```php
+\OP\UNIT\NotFound::Selftest();
 ```
 
- Add to admin.php
+ Save the URL automatically.
 
+```php
+\OP\UNIT\NotFound::Auto();
 ```
-<?php
-if( Unit::Load('NotFound') ){
-    OP\UNIT\NotFound::Admin();
-};
+
+ Display the management screen.
+
+```php
+\OP\UNIT\NotFound::Admin();
 ```
+
+# Config
+
+```php
+config = [
+  'execute' => true,
+  'dsn'     => 'mysql://notfound:password@localhost:3306?database=onepiece&charset=utf8',
+];
+```
+
+ * execute is Execution flag
+ * dsn is Database of Data Source Name.
