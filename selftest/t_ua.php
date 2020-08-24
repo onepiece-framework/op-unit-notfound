@@ -83,13 +83,7 @@ $configer->Set('column', [
 	'comment' => 'On update current timestamp.',
 ]);
 
-//  Auto incrment id.
-$configer->Set('index', [
-	'name'    => 'ai',
-	'type'    => 'ai',
-	'column'  => 'ai',
-	'comment' => 'auto incrment',
-]);
+//--------------------------------------------//
 
 //  Search unique index key.
 $configer->Set('index', [
