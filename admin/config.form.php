@@ -67,8 +67,8 @@ $form['input'][] = $input;
 
 //	...
 $input = [];
-$input['name']  = 'submit';
-$input['type']  = 'submit';
+$input['name']  = 'button';
+$input['type']  = 'button';
 $input['label'] = 'Submit';
 $input['value'] = 'Submit';
 $form['input'][] = $input;
