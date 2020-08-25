@@ -18,6 +18,7 @@ namespace OP\UNIT\NOTFOUND;
  */
 use OP\OP_CORE;
 use OP\IF_UNIT;
+use function OP\Unit;
 
 /** Selftest
  *
