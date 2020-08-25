@@ -86,6 +86,7 @@ if( $_GET['selftest'] ?? null ){
 
 //	...
 $query = http_build_query( array_diff_key($_GET, ['uri'=>null]) );
+
 ?>
 <?php $form->Start() ?>
 <div id="control-panel" style="border:1px solid black; margin: 1em; padding: 1em;">
@@ -126,7 +127,7 @@ $query = http_build_query( array_diff_key($_GET, ['uri'=>null]) );
 		</tr>
 		<?php endforeach; ?>
 	</table>
-	<?php $form->Input('submit') ?>
+	<?php $form->Input('button') ?>
 </div>
 <?php $form->Finish() ?>
 
