@@ -41,7 +41,8 @@ foreach( \OP\UNIT\NOTFOUND\Common::DB()->Select($config) as $record ){
 	$input['option'][] = $record['host'];
 };
 
-//	...
+//	Merge
+//$input['cookie'] = true;
 $form['input'][] = $input;
 
 //	...
@@ -49,8 +50,9 @@ $input = [];
 $input['name']  = 'date-st';
 $input['type']  = 'date';
 $input['label'] = 'date-st';
-$input['value'] = Env::Timestamp(false, '-30 days');
+$input['value'] = date('Y-m-d', strtotime('-30 days'));
 $input['required'] = true;
+//$input['cookie'] = true;
 $form['input'][] = $input;
 
 //	...
@@ -58,8 +60,9 @@ $input = [];
 $input['name']  = 'date-en';
 $input['type']  = 'date';
 $input['label'] = 'date-en';
-$input['value'] = Env::Timestamp();
+$input['value'] = date('Y-m-d');
 $input['required'] = true;
+//$input['cookie'] = true;
 $form['input'][] = $input;
 
 //	...
