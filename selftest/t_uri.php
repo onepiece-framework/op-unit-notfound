@@ -1,7 +1,7 @@
 <?php
 /** op-unit-notfound:/selftest/t_uri.php
  *
- * @creation  2019-02-05
+ * @created   2019-02-05
  * @version   1.0
  * @package   op-unit-notfound
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
