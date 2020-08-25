@@ -20,6 +20,7 @@ use OP\OP_CORE;
 use OP\IF_DATABASE;
 use OP\Config;
 use function OP\Unit;
+use function OP\Hasha1;
 
 /** Common
  *
