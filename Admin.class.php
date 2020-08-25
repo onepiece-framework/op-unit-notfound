@@ -51,21 +51,6 @@ class Admin implements IF_UNIT
 	{
 		//	...
 		if(!$db = Common::DB() ){
-
-			/*
-			//	Throw away connection error notice.
-			$notice = Notice::Pop();
-
-			//	...
-			D($notice['message']);
-			D(Config::Get('notfound'));
-
-			//	...
-			if( include(__DIR__.'/../selftest/Selftest.class.php') ){
-				Selftest::Auto($db);
-			};
-			*/
-
 			//	...
 			return;
 		};
@@ -84,7 +69,7 @@ class Admin implements IF_UNIT
 		$form = self::Form();
 
 		//	...
-		return include(__DIR__.'/admin.phtml');
+		return include(__DIR__.'/admin/admin.phtml');
 	}
 
 	/** Form
@@ -98,7 +83,7 @@ class Admin implements IF_UNIT
 		//	...
 		if(!$form ){
 			$form = Unit::Instantiate('Form');
-			$form->Config(__DIR__.'/config.form.php');
+			$form->Config(__DIR__.'/admin/config.form.php');
 
 			//	...
 			if( Env::isAdmin() ){
@@ -119,7 +104,7 @@ class Admin implements IF_UNIT
 	static function Selftest()
 	{
 		//	...
-		if(!include_once(__DIR__.'/../selftest/Selftest.class.php') ){
+		if(!include_once(__DIR__.'/Selftest.class.php') ){
 			return false;
 		}
 

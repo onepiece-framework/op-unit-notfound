@@ -329,7 +329,7 @@ class NotFound implements IF_UNIT
 	 */
 	static function Admin()
 	{
-		include_once(__DIR__.'/admin/Admin.class.php');
+		include_once(__DIR__.'/Admin.class.php');
 		Admin::Auto();
 	}
 }
