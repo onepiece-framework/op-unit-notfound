@@ -1,12 +1,11 @@
 <?php
-/**
- * unit-notfound:/config/browser.php
+/** op-unit-notfound:/config/browser.php
  *
  * Use from NotFound::_browser()
  *
- * @creation  2019-02-08
+ * @created   2019-02-08
  * @version   1.0
- * @package   unit-notfound
+ * @package   op-unit-notfound
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
