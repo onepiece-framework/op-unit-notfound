@@ -46,11 +46,6 @@ class Selftest implements IF_UNIT
 		};
 
 		//	...
-		if( ($io === false) or ($_GET['debug'] ?? null) ){
-			$selftest->Debug($_GET['debug'] ?? '');
-		};
-
-		//	...
 		return $io;
 	}
 }
