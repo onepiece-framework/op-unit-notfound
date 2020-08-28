@@ -156,7 +156,7 @@ class Admin implements IF_UNIT
 //		$config['group'] = 't_notfound.uri';
 
 		if( $date_st ){ $config['where'][] = "t_notfound.timestamp >= $date_st 00:00:00"; };
-		if( $date_en ){ $config['where'][] = "t_notfound.timestamp <= $date_en 23:59:60"; }; // 60 is Leap seconds.
+		if( $date_en ){ $config['where'][] = "t_notfound.timestamp <= $date_en 23:59:59"; }; // 60 is Leap seconds. --> MySQL 8.0 is not support.
 
 		//	...
 		if( Env::isAdmin() ){
