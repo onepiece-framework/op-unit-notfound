@@ -145,14 +145,16 @@ class Admin implements IF_UNIT
 		$config = [];
 		$config['table'] = 't_notfound.uri <= t_uri.ai';
 		$config['limit'] = 100;
-		$config['order'] = 'count desc';
-		$config['group'] = 't_notfound.uri';
+		$config['where'][] = "t_notfound.host = $ai";
 		$config['field'][] = "t_notfound.ai  as ai     ";
 		$config['field'][] = "t_notfound.uri as uri_ai ";
 		$config['field'][] = "t_uri.uri      as uri    ";
-		$config['field'][] = "sum(t_notfound.count) as count     ";
 		$config['field'][] = "t_notfound.timestamp  as timestamp ";
-		$config['where'][] = "host = $ai";
+		$config['field'][] = "    t_notfound.count  as count     ";
+//		$config['field'][] = "sum(t_notfound.count) as count     ";
+//		$config['order'] = 'count desc';
+//		$config['group'] = 't_notfound.uri';
+
 		if( $date_st ){ $config['where'][] = "t_notfound.timestamp >= $date_st 00:00:00"; };
 		if( $date_en ){ $config['where'][] = "t_notfound.timestamp <= $date_en 23:59:60"; }; // 60 is Leap seconds.
 
