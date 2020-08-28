@@ -18,7 +18,7 @@ namespace OP;
  */
 
 /* @var $configer \OP\UNIT\SELFTEST\Configer */
-$config = Config::Get('notfound');
+$config = Config::Get('notfound')['database'];
 
 //  DSN configuration.
 $configer->DSN([
