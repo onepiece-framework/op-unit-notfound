@@ -20,7 +20,13 @@ $execute = true;
  * @created   2020-08-23
  * @var       string       $dsn
  */
-$dsn = 'mysql://notfound:password@localhost:3306?database=onepiece&charset=utf8';
+$database = [];
+$database['prod']     = 'mysql';
+$database['host']     = 'localhost';
+$database['user']     = 'notfound';
+$database['password'] = 'password';
+$database['database'] = 'onepiece';
+$database['charset']  = 'utf8';
 
 /** Return config array.
  *
@@ -29,5 +35,5 @@ $dsn = 'mysql://notfound:password@localhost:3306?database=onepiece&charset=utf8'
  */
 return [
 	'execute'  => $execute,
-	'dsn'      => $dsn,
+	'database' => $database,
 ];
