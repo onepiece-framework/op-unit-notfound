@@ -84,11 +84,13 @@ class Common
 	static private function _Config()
 	{
 		//	Get config from Env.
-		if(!$config = Config::Get('notfound') ){
+		if(!$config = Config::Get('notfound')['database'] ){
 		//	$this->Unit('notfound')->Help('Setup');
 			throw new \Exception("See README.md at Setup section.");
 		};
 
+		/** The DSN function has been abolished.
+		 *
 		//	If given DSN.
 		if( $dsn = $config['dsn'] ?? null ){
 			//	Parse DSN.
@@ -96,8 +98,9 @@ class Common
 			$config['dsn'] = null;
 
 			//	Save parse result.
-			Config::Set('notfound', $config);
+		//	Config::Set('notfound', $config);
 		};
+		*/
 
 		//	...
 		foreach( ['prod','host','user','password','database'] as $key ){
