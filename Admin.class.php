@@ -55,6 +55,7 @@ class Admin implements IF_UNIT
 			return;
 		};
 
+		/*
 		//	Get selftest result.
 		if(!$io = Cookie::Get(__METHOD__) ){
 			if(!$io = self::Selftest($db) ){
@@ -64,6 +65,7 @@ class Admin implements IF_UNIT
 
 		//	Save selftest result.
 		Cookie::Set(__METHOD__, true, 60*60*24);
+		*/
 
 		/* @var $form IF_FORM */
 		$form = self::Form();
