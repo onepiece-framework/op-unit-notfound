@@ -21,7 +21,6 @@ use OP\IF_UNIT;
 use OP\IF_FORM;
 use OP\Env;
 use OP\Unit;
-use OP\Cookie;
 
 /** Admin
  *
@@ -54,6 +53,11 @@ class Admin implements IF_UNIT
 			//	...
 			return;
 		};
+
+		//	...
+		if( false ){
+			D($db);
+		}
 
 		/*
 		//	Get selftest result.
