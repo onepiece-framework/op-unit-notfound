@@ -41,18 +41,15 @@ class NotFound implements IF_UNIT
 	 */
 	static private $_debug;
 
-	/** Will execute automatically.
+	/** Automatically.
 	 *
 	 */
 	static function Auto()
 	{
-		//	...
-		if( $DB = NOTFOUND\Common::DB() ){
-			$host = self::_Host( $DB );
-			$uri  = self::_URI(  $DB );
-			$ua   = self::_UA(   $DB );
-					self::_NotFound( $DB, $host, $uri, $ua );
-		};
+		$host = self::_Host();
+		$uri  = self::_URI();
+		$ua   = self::_UA();
+				self::_NotFound($host, $uri, $ua );
 	}
 
 	/** Host name
