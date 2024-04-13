@@ -226,11 +226,14 @@ class Admin implements IF_UNIT
 
 	/** For developers.
 	 *
+	 * @deprecated
 	 * @see IF_UNIT::Debug()
 	 * @param	 string		 $topic
 	 */
 	function Debug($topic=null)
 	{
+		/*
 		D( self::$_debug );
+		*/
 	}
 }
