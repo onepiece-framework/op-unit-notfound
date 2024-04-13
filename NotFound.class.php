@@ -128,11 +128,12 @@ class NotFound implements IF_UNIT
 
 	/** User agent
 	 *
-	 * @param	 IF_DATABASE $DB
 	 * @return	 int		 $ai
 	 */
-	static private function _UA( IF_DATABASE $DB ):int
+	static private function _UA() : int
 	{
+		//	Get database unit.
+		if( $DB= NOTFOUND\Common::DB() ){
 		//	...
 		$ua = $_SERVER['HTTP_USER_AGENT'] ?? '';
 
@@ -176,9 +177,10 @@ class NotFound implements IF_UNIT
 			//	...
 			$DB->Update($config);
 		};
+		} // if( $DB ){ ... }
 
 		//	...
-		return $ai;
+		return $ai ?? 0;
 	}
 
 	/** OS
