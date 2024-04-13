@@ -19,8 +19,6 @@ namespace OP\UNIT;
 use OP\OP_CI;
 use OP\OP_CORE;
 use OP\IF_UNIT;
-use OP\IF_DATABASE;
-use OP\UNIT\NOTFOUND\Admin;
 
 /** NotFound
  *
