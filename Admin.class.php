@@ -211,15 +211,17 @@ class Admin implements IF_UNIT
 
 	/** For developers.
 	 *
-	 *
+	 * @deprecated
 	 * @see IF_UNIT::Help()
 	 * @param	 string		 $topic
 	 */
 	function Help($topic=null)
 	{
+		/*
 		echo '<pre><code>';
 		echo file_get_contents(__DIR__.'/README.md');
 		echo '</code></pre>';
+		*/
 	}
 
 	/** For developers.
