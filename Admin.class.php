@@ -21,6 +21,7 @@ use OP\IF_UNIT;
 use OP\IF_FORM;
 use OP\Env;
 use OP\Unit;
+use OP\OP_CI;
 
 /** Admin
  *
@@ -35,7 +36,7 @@ class Admin implements IF_UNIT
 	/** trait.
 	 *
 	 */
-	use OP_CORE;
+	use OP_CORE, OP_CI;
 
 	/** Debug.
 	 *
