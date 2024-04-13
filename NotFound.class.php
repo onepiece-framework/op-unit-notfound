@@ -54,11 +54,12 @@ class NotFound implements IF_UNIT
 
 	/** Host name
 	 *
-	 * @param	 IF_DATABASE $DB
 	 * @return	 int		 $ai
 	 */
-	static private function _Host( IF_DATABASE $DB ):int
+	static private function _Host() : int
 	{
+		//	Get database unit.
+		if( $DB= NOTFOUND\Common::DB() ){
 		//	...
 		$table = 't_host';
 		$host  = $_SERVER['SERVER_NAME'];
@@ -78,9 +79,10 @@ class NotFound implements IF_UNIT
 			//	...
 			$ai = $DB->Insert($config);
 		};
+		} // if( $DB ){ ... }
 
 		//	...
-		return $ai;
+		return $ai ?? 0;
 	}
 
 	/** URI
