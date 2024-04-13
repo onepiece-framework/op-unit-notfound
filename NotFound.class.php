@@ -87,11 +87,12 @@ class NotFound implements IF_UNIT
 
 	/** URI
 	 *
-	 * @param	 IF_DATABASE $DB
 	 * @return	 int		 $ai
 	 */
-	static private function _URI( IF_DATABASE $DB ):int
+	static private function _URI() : int
 	{
+		//	Get database unit.
+		if( $DB= NOTFOUND\Common::DB() ){
 		//	...
 		$uri   = $_SERVER['REQUEST_URI'];
 
@@ -119,9 +120,10 @@ class NotFound implements IF_UNIT
 			//	...
 			$ai = $DB->Insert($config);
 		};
+		} // if( $DB ){ ... }
 
 		//	...
-		return $ai;
+		return $ai ?? 0;
 	}
 
 	/** User agent
