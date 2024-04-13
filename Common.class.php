@@ -16,6 +16,7 @@ namespace OP\UNIT\NOTFOUND;
 /** use
  *
  */
+use OP\OP_CI;
 use OP\OP_CORE;
 use OP\IF_DATABASE;
 use OP\Config;
@@ -35,7 +36,7 @@ class Common
 	/** trait.
 	 *
 	 */
-	use OP_CORE;
+	use OP_CORE, OP_CI;
 
 	/** Parse config from DSN format.
 	 *
