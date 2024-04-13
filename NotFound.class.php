@@ -16,6 +16,7 @@ namespace OP\UNIT;
 /** use
  *
  */
+use OP\OP_CI;
 use OP\OP_CORE;
 use OP\IF_UNIT;
 use OP\IF_DATABASE;
@@ -34,7 +35,7 @@ class NotFound implements IF_UNIT
 	/** trait.
 	 *
 	 */
-	use OP_CORE;
+	use OP_CORE, OP_CI;
 
 	/** Debug.
 	 *
