@@ -189,7 +189,7 @@ class NotFound implements IF_UNIT
 	 * @param	 string		 $ua
 	 * @return	 int|null	 $ai
 	 */
-	static private function _OS( $ua_ai, $ua )
+	static private function _OS( $ua_ai, $ua ) : ?int
 	{
 		//	...
 		$table = 't_ua_os';
@@ -228,7 +228,7 @@ class NotFound implements IF_UNIT
 		};
 
 		//	...
-		return $ai ?? null;
+		return $ai ?? 0;
 	}
 
 	/** Browser
