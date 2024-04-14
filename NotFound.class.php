@@ -281,14 +281,15 @@ class NotFound implements IF_UNIT
 
 	/** NotFound
 	 *
-	 * @param	 IF_DATABASE $DB
 	 * @param	 string		 $host
 	 * @param	 string		 $uri
 	 * @param	 string		 $ua
 	 * @return	 int		 $count
 	 */
-	static private function _NotFound( IF_DATABASE $DB, int $host, int $uri, int $ua ):int
+	static private function _NotFound(int $host, int $uri, int $ua ) : int
 	{
+		//	Get database unit.
+		if( $DB= NOTFOUND\Common::DB() ){
 		//	...
 		$table = 't_notfound';
 
@@ -321,9 +322,10 @@ class NotFound implements IF_UNIT
 			//	...
 			$DB->Update($config);
 		};
+		} // if( $DB ){ ... }
 
 		//	...
-		return $count;
+		return $count ?? 0;
 	}
 
 	/** Will execute automatically of Admin.
