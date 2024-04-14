@@ -237,7 +237,7 @@ class NotFound implements IF_UNIT
 	 * @param	 string		 $ua
 	 * @return	 int|null	 $ai
 	 */
-	static private function _Browser( $ua_ai, $ua )
+	static private function _Browser( $ua_ai, $ua ) : ?int
 	{
 		//	...
 		$table = 't_ua_browser';
