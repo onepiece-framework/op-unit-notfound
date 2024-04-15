@@ -16,6 +16,7 @@ namespace OP\UNIT\NOTFOUND;
 /** use
  *
  */
+use OP\OP_CI;
 use OP\OP_CORE;
 use OP\IF_UNIT;
 use function OP\Unit;
@@ -33,7 +34,7 @@ class Selftest implements IF_UNIT
 	/** trait.
 	 *
 	 */
-	use OP_CORE;
+	use OP_CORE, OP_CI;
 
 	/** Will execute automatically of Selftest.
 	 *
