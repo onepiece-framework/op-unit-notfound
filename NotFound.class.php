@@ -35,4 +35,21 @@ class NotFound implements IF_UNIT
 	 *
 	 */
 	use OP_CORE, OP_UNIT, OP_CI;
+
+	/** Auto
+	 *
+	 */
+	static function Auto()
+	{
+		//	...
+		switch( $store = OP()->Config('notfound')['store'] ?? null ){
+			//	...
+			case 'apcu':
+				require_once(__DIR__.'/function/apcu.php');
+				NOTFOUND\apcu();
+				break;
+			default:
+				D($store);
+		}
+	}
 }
