@@ -28,12 +28,25 @@ $database['password'] = 'password';
 $database['database'] = 'onepiece';
 $database['charset']  = 'utf8';
 
+/** Where is the data stored?
+ *
+ * 1. apcu
+ * 1. memcache
+ * 1. database
+ * 1. mongodb
+ *
+ * @created   2024-05-18
+ * @var       string       $store
+ */
+$store = 'apcu';
+
 /** Return config array.
  *
  * @created   2020-08-21
  * @return    array        $config
  */
 return [
+	'store'    => $store,
 	'execute'  => $execute,
 	'database' => $database,
 ];
