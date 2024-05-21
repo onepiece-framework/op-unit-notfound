@@ -47,10 +47,14 @@ function apcu()
 
 	//	...
 	if( empty($apcu[$path_key]) ){
+		//	...
 		$apcu[$path_key] = [
 			'path'  => $path,
 			'count' => 0,
 		];
+
+		//	...
+		OP()->Notice("404 NotFound: {$_SERVER['REQUEST_URI']}");
 	}
 	//	...
 	$apcu[$path_key]['count']++;
