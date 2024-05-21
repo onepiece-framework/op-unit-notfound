@@ -41,7 +41,6 @@ class Selftest implements IF_UNIT
 	 */
 	static function Auto()
 	{
-		/* @var $selftest \OP\UNIT\Selftest */
 		if( $io = $selftest = Unit('Selftest') ){
 			$io = $selftest->Auto(__DIR__.'/selftest/config.php');
 		};
