@@ -17,7 +17,6 @@ namespace OP;
  *
  */
 
-/* @var $configer \OP\UNIT\SELFTEST\Configer */
 $configer = Unit('Selftest')->Configer();
 
 //	...
