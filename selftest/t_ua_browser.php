@@ -17,7 +17,7 @@ namespace OP;
  *
  */
 
-/* @var $configer \OP\UNIT\SELFTEST\Configer */
+ /* @var $configer object */
 
 //  Table configuration.
 $configer->Set('table', [
