@@ -38,9 +38,13 @@ class NotFound implements IF_UNIT
 
 	/** Auto
 	 *
+	 * @created    2024-05-18
 	 */
 	static function Auto()
 	{
+		//	...
+		self::Blacklist();
+
 		//	...
 		switch( $store = OP()->Config('notfound')['store'] ?? null ){
 			//	...
@@ -50,6 +54,23 @@ class NotFound implements IF_UNIT
 				break;
 			default:
 				D($store);
+		}
+	}
+
+	/** Blacklist
+	 *
+	 * @created    2024-05-22
+	 */
+	static function Blacklist()
+	{
+		//	...
+		$parsed = OP()->ParseURL($_SERVER['REQUEST_URI']);
+		$path   = $parsed['path'];
+		$list   = file_get_contents(__DIR__.'/config/blacklist.txt');
+		$hit    = strpos($list, $path);
+		//	...
+		if( $hit ){
+			$_SESSION[_OP_CORE_BLACKLIST_] = 'unit:/NotFound::Blacklist()';
 		}
 	}
 }
