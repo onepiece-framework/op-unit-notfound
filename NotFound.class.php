@@ -43,7 +43,9 @@ class NotFound implements IF_UNIT
 	static function Auto()
 	{
 		//	...
-		self::Blacklist();
+		if( self::Blacklist() ){
+			return;
+		}
 
 		//	...
 		switch( $store = OP()->Config('notfound')['store'] ?? null ){
