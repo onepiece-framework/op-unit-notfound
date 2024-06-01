@@ -1,4 +1,5 @@
 
+.asp
 /aws.env
 /wp-login.php
 /wp-admin/
