@@ -74,7 +74,7 @@ class NotFound implements IF_UNIT
 
 		//	...
 		if( $hit ){
-			$_SESSION[_OP_CORE_BLACKLIST_] = 'unit:/NotFound::Blacklist()';
+			OP()->Blacklist("op-unit-notfound: $path");
 		}
 
 		//	...
