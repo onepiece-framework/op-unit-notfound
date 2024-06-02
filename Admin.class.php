@@ -89,10 +89,12 @@ class Admin implements IF_UNIT
 
 		//	...
 		if(!$form ){
+			/*
 			//	...
 			if(!Unit::isInstalled('form') ){
 				throw new \Exception("op-unit-form is not installed.");
 			}
+			*/
 
 			//	...
 			$form = Unit::Instantiate('Form');

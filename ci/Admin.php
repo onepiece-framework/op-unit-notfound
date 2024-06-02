@@ -48,7 +48,7 @@ $ci->Set($method, $result, $args);
 //	...
 $method = 'GetRecordAtHost';
 $args   =  null;
-$result = $is_form ? 'Notice: This method has not been exists. (OP\UNIT\Selftest->Unit(Form))': 'Exception: op-unit-form is not installed.';
+$result = $is_form ? 'Notice: This method has not been exists. (OP\UNIT\Selftest->Unit(Form))': 'Exception: Does not install "Form" unit. (git:/asset/unit/form)';
 $ci->Set($method, $result, $args);
 
 //	...
