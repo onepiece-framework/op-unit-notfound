@@ -30,6 +30,9 @@ $result = $arg1 . $arg2;
 $ci->Set($method, $result, $args);
 
 //	...
+$is_database = \OP\Unit::isInstalled('Database');
+
+//	...
 $method = 'DSN';
 $args   =  null;
 $result = 'Notice: parse_url(): Passing null to parameter #1 ($url) of type string is deprecated';
@@ -51,8 +54,8 @@ $ci->Set($method, $result, $args);
 //	...
 $method = 'DB';
 $args   =  null;
-$result = 'Notice: The path of socket is not set in "php.ini".
-Please set to "pdo_mysql.default_socket".';
+$result = $is_database ? 'Notice: The path of socket is not set in "php.ini".
+Please set to "pdo_mysql.default_socket".' : 'Exception: Does not install "Database" unit. (git:/asset/unit/database)';
 $ci->Set($method, $result, $args);
 
 //	...
