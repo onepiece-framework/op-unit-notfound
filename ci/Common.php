@@ -34,8 +34,12 @@ $is_database = \OP\Unit::isInstalled('Database');
 
 //	...
 $method = 'DSN';
-$args   =  null;
-$result = 'Notice: parse_url(): Passing null to parameter #1 ($url) of type string is deprecated';
+$args   = '';
+$result = [
+	'path' => '',
+	'prod' => null,
+	'port' => '3306',
+];
 $ci->Set($method, $result, $args);
 
 //	...
