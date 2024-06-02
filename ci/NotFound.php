@@ -26,7 +26,13 @@ $method = 'Template';
 $arg1   = 'foo';
 $arg2   = 'bar';
 $args   = ['ci.phtml',['arg1'=>$arg1, 'arg2'=>$arg2]];
-$result = $arg1 . $arg2;
+$result = 'array(2) {
+  ["arg1"]=>
+  string(3) "foo"
+  ["arg2"]=>
+  string(3) "bar"
+}
+';
 $ci->Set($method, $result, $args);
 
 //	...
