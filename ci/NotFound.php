@@ -36,6 +36,12 @@ $result = 'array(2) {
 $ci->Set($method, $result, $args);
 
 //	...
+$method = 'Blacklist';
+$args   =  null;
+$result =  false;
+$ci->Set($method, $result, $args);
+
+//	...
 $method = '_Host';
 $args   =  null;
 $result =  0;

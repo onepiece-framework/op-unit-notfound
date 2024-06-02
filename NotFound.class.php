@@ -70,6 +70,8 @@ class NotFound implements IF_UNIT
 		//	...
 		if( $uri ){
 			//	...
+		}else if( OP()->Env()->isCI() ){
+			$uri = '/CICD/';
 		}else{
 			$uri = $_SERVER['REQUEST_URI'];
 		}
