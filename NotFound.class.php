@@ -62,12 +62,20 @@ class NotFound implements IF_UNIT
 	/** Blacklist
 	 *
 	 * @created    2024-05-22
+	 * @param      string
 	 * @return     boolean
 	 */
-	static function Blacklist() : bool
+	static function Blacklist(?string $uri='') : bool
 	{
 		//	...
-		$parsed = OP()->ParseURL($_SERVER['REQUEST_URI']);
+		if( $uri ){
+			//	...
+		}else{
+			$uri = $_SERVER['REQUEST_URI'];
+		}
+
+		//	...
+		$parsed = OP()->ParseURL($uri);
 		$path   = $parsed['path'];
 		$list   = file_get_contents(__DIR__.'/config/blacklist.txt');
 		$hit    = strpos($list, $path);
