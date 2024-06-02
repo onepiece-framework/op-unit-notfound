@@ -30,21 +30,25 @@ $result = $arg1 . $arg2;
 $ci->Set($method, $result, $args);
 
 //	...
+$is_form     = \OP\Unit::isInstalled('form');
+$is_selftest = \OP\Unit::isInstalled('selftest');
+
+//	...
 $method = 'Form';
 $args   =  null;
-$result = 'Notice: Class "OP\UNIT\NOTFOUND\Common" not found';
+$result = $is_form ? '\OP\UNIT\Form': 'Exception: op-unit-form is not installed.';
 $ci->Set($method, $result, $args);
 
 //	...
 $method = 'Selftest';
 $args   =  null;
-$result = 'Exception: Call to a member function Config() on null';
+$result = $is_selftest ? 'Exception: Call to a member function Config() on null': 'Exception: Does not install "Selftest" unit. (git:/asset/unit/selftest)';
 $ci->Set($method, $result, $args);
 
 //	...
 $method = 'GetRecordAtHost';
 $args   =  null;
-$result = 'Notice: This method has not been exists. (OP\UNIT\Selftest->Unit(Form))';
+$result = $is_form ? 'Notice: This method has not been exists. (OP\UNIT\Selftest->Unit(Form))': 'Exception: op-unit-form is not installed.';
 $ci->Set($method, $result, $args);
 
 //	...
