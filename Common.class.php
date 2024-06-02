@@ -43,7 +43,7 @@ class Common
 	 * @param	 string		 $dsn
 	 * @return	 array		 $config
 	 */
-	static function DSN($dsn)
+	static function DSN(string $dsn) : array
 	{
 		//	...
 		if( $config = parse_url($dsn) ){
