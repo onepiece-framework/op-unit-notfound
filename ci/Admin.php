@@ -36,7 +36,7 @@ $is_selftest = \OP\Unit::isInstalled('selftest');
 //	...
 $method = 'Form';
 $args   =  null;
-$result = $is_form ? '\OP\UNIT\Form': 'Exception: op-unit-form is not installed.';
+$result = $is_form ? '\OP\UNIT\Form': 'Exception: Does not install "Form" unit. (git:/asset/unit/form)';
 $ci->Set($method, $result, $args);
 
 //	...
