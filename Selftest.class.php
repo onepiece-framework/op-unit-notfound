@@ -19,7 +19,6 @@ namespace OP\UNIT\NOTFOUND;
 use OP\OP_CI;
 use OP\OP_CORE;
 use OP\IF_UNIT;
-use function OP\Unit;
 
 /** Selftest
  *
@@ -41,7 +40,7 @@ class Selftest implements IF_UNIT
 	 */
 	static function Auto()
 	{
-		if( $io = $selftest = Unit('Selftest') ){
+		if( $io = $selftest = OP()->Unit('Selftest') ){
 			$io = $selftest->Auto(__DIR__.'/selftest/config.php');
 		};
 
