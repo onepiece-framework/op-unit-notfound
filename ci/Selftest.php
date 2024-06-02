@@ -29,5 +29,7 @@ $args   = ['ci.phtml',['arg1'=>$arg1, 'arg2'=>$arg2]];
 $result = $arg1 . $arg2;
 $ci->Set($method, $result, $args);
 
+
+
 //	...
 return $ci->Get();
