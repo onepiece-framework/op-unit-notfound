@@ -1,5 +1,5 @@
 <?php
-/** op-unit-notfound:/NotFound.class.php
+/** op-unit-notfound:/NotFound2020.trait.php
  *
  * @created   2019-01-29
  * @version   1.0
@@ -18,7 +18,6 @@ namespace OP\UNIT;
  */
 use OP\OP_CI;
 use OP\OP_CORE;
-use OP\IF_UNIT;
 
 /** NotFound
  *
@@ -28,7 +27,7 @@ use OP\IF_UNIT;
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
-class NotFound implements IF_UNIT
+trait NotFound2020
 {
 	/** trait.
 	 *
