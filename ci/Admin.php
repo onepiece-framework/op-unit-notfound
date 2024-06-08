@@ -29,32 +29,34 @@ $args   = ['ci.phtml',['arg1'=>$arg1, 'arg2'=>$arg2]];
 $result = $arg1 . $arg2;
 $ci->Set($method, $result, $args);
 
+/*
 //	...
 $is_form     = \OP\Unit::isInstalled('form');
 $is_selftest = \OP\Unit::isInstalled('selftest');
+*/
 
 //	...
 $method = 'Form';
 $args   =  null;
-$result = $is_form ? '\OP\UNIT\Form': 'Exception: Does not install "Form" unit. (git:/asset/unit/form)';
+$result = 'OP\UNIT\Form';
 $ci->Set($method, $result, $args);
 
 //	...
 $method = 'Selftest';
 $args   =  null;
-$result = $is_selftest ? 'Exception: Call to a member function Config() on null': 'Exception: Does not install "Selftest" unit. (git:/asset/unit/selftest)';
+$result = 'CI is not support';
 $ci->Set($method, $result, $args);
 
 //	...
 $method = 'GetRecordAtHost';
 $args   =  null;
-$result = $is_form ? 'Notice: This method has not been exists. (OP\UNIT\Selftest->Unit(Form))': 'Exception: Does not install "Form" unit. (git:/asset/unit/form)';
+$result = ['CI is not support'];
 $ci->Set($method, $result, $args);
 
 //	...
 $method = 'GetRecordAtURI';
 $args   =  null;
-$result = [];
+$result = ['CI is not support'];
 $ci->Set($method, $result, $args);
 
 //	...
