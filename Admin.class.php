@@ -216,32 +216,4 @@ class Admin implements IF_UNIT
 		//	...
 		return Common::DB()->Select($config);
 	}
-
-	/** For developers.
-	 *
-	 * @deprecated
-	 * @see IF_UNIT::Help()
-	 * @param	 string		 $topic
-	 */
-	function Help($topic=null)
-	{
-		/*
-		echo '<pre><code>';
-		echo file_get_contents(__DIR__.'/README.md');
-		echo '</code></pre>';
-		*/
-	}
-
-	/** For developers.
-	 *
-	 * @deprecated
-	 * @see IF_UNIT::Debug()
-	 * @param	 string		 $topic
-	 */
-	function Debug($topic=null)
-	{
-		/*
-		D( self::$_debug );
-		*/
-	}
 }
