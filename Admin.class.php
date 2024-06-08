@@ -84,6 +84,11 @@ class Admin implements IF_UNIT
 	 */
 	static function Form()
 	{
+		//	...
+		if( OP()->Env()->isCI() ){
+			return 'OP\UNIT\Form';
+		}
+
 		/* @var $form IF_FORM */
 		static $form;
 
@@ -119,6 +124,11 @@ class Admin implements IF_UNIT
 	static function Selftest()
 	{
 		//	...
+		if( OP()->Env()->isCI() ){
+			return 'CI is not support';
+		}
+
+		//	...
 		if(!include_once(__DIR__.'/Selftest.class.php') ){
 			return false;
 		}
@@ -133,6 +143,11 @@ class Admin implements IF_UNIT
 	 */
 	static function GetRecordAtHost():array
 	{
+		//	...
+		if( OP()->Env()->isCI() ){
+			return ['CI is not support'];
+		}
+
 		//	...
 		$form    = self::Form();
 
@@ -188,6 +203,11 @@ class Admin implements IF_UNIT
 	 */
 	static function GetRecordAtURI():array
 	{
+		//	...
+		if( OP()->Env()->isCI() ){
+			return ['CI is not support'];
+		}
+
 		//	...
 		if(!$uri = $_GET['uri'] ?? null ){
 			return [];
