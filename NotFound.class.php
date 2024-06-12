@@ -88,6 +88,11 @@ class NotFound implements IF_UNIT
 		}
 
 		//	...
+		if( $_SERVER['REMOTE_ADDR'] === gethostname($_SERVER['REMOTE_ADDR']) ){
+			OP()->Blacklist("op-unit-notfound: host name resolve is fail.");
+		}
+
+		//	...
 		return $hit ? true: false;
 	}
 }
