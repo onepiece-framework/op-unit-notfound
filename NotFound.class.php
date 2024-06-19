@@ -68,11 +68,12 @@ class NotFound implements IF_UNIT
 	static function Blacklist(?string $uri='') : bool
 	{
 		//	...
-		if( $uri ){
-			//	...
-		}else if( OP()->Env()->isCI() ){
-			$uri = '/CICD/';
-		}else{
+		if( OP()->Env()->isCI() ){
+			return false;
+		}
+
+		//	...
+		if(!$uri ){
 			$uri = $_SERVER['REQUEST_URI'];
 		}
 
