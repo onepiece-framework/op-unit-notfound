@@ -67,6 +67,13 @@ class NotFound implements IF_UNIT
 				require_once(__DIR__.'/function/apcu.php');
 				NOTFOUND\apcu();
 				break;
+
+			//	...
+			case 'sqlite':
+				require_once(__DIR__.'/include/store_sqlite.php');
+				break;
+
+			//	...
 			default:
 				D($store);
 		}
