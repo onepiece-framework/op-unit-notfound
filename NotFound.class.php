@@ -43,6 +43,19 @@ class NotFound implements IF_UNIT
 	static function Auto()
 	{
 		//	...
+		if(!$url = $_SERVER['REQUEST_URI'] ?? null ){
+			return;
+		}
+
+		//	...
+		$parsed = OP()->ParseURL($url);
+
+		//	...
+		if( empty($parsed['ext']) ){
+			return;
+		}
+
+		//	...
 		if( self::Blacklist() ){
 			return;
 		}
