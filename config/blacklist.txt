@@ -1,7 +1,9 @@
 
 .asp
+.cgi
 /aws.env
 /wp-login.php
 /wp-admin/
 /wp-content/
 /wp-includes/
+/composer.php
