@@ -18,7 +18,7 @@ declare(strict_types=1);
  */
 namespace OP\UNIT\NOTFOUND;
 
-/* @var $qql \OP\UNIT\QQL */
+/* @var $qql \OP\IF_QQL */
 $qql = OP()->Unit('QQL');
 
 //	...
