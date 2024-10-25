@@ -37,7 +37,7 @@ $ci->Set($method, $result, $args);
 
 //	...
 $method = 'Blacklist';
-$args   =  null;
+$args   = [];
 $result =  false;
 $ci->Set($method, $result, $args);
 
