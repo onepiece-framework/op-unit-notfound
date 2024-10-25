@@ -96,7 +96,7 @@ class NotFound implements IF_UNIT
 	 * @param      string
 	 * @return     boolean
 	 */
-	static function Blacklist(?string $uri='') : bool
+	static function Blacklist( string $uri='') : bool
 	{
 		//	...
 		if( OP()->Env()->isCI() ){
