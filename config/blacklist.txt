@@ -7,3 +7,9 @@
 /wp-content/
 /wp-includes/
 /composer.php
+/app/
+/admin/
+/assets/
+/plugins/
+/lib/
+/phpinfo.php
