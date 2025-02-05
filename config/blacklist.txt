@@ -1,6 +1,7 @@
 
 .asp
 .cgi
+/.git/
 /aws.env
 /wp-login.php
 /wp-admin/
