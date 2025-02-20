@@ -44,6 +44,16 @@ class NotFound implements IF_UNIT
 	static function Auto()
 	{
 		//	...
+		$count = self::Session('count');
+		self::Session('count', $count + 1);
+		D('count', $count);
+
+		//	...
+		if( $count > 10 ){
+			OP()->Blacklist("op-unit-notfound: count: {$count}");
+		}
+
+		//	...
 		if(!$url = $_SERVER['REQUEST_URI'] ?? null ){
 			return;
 		}
