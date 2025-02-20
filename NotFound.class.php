@@ -35,6 +35,7 @@ class NotFound implements IF_UNIT
 	 *
 	 */
 	use OP_CORE, OP_UNIT, OP_CI;
+	use \OP\OP_SESSION;
 
 	/** Auto
 	 *

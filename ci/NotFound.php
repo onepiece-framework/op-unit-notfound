@@ -78,4 +78,10 @@ $result =  0;
 $ci->Set($method, $result, $args);
 
 //	...
+$method = 'Session';
+$args   = 'count';
+$result =  null;
+$ci->Set($method, $result, $args);
+
+//	...
 return $ci->Get();
