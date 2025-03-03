@@ -119,6 +119,20 @@ class NotFound implements IF_UNIT
 		}
 
 		//	...
+		switch( $parsed['ext'] ){
+			case 'sql':
+			case 'zip':
+			case 'key':
+			case 'yml':
+			case 'action':
+			case 'config':
+				$hit = true;
+				break;
+			default:
+				D($parsed);
+		}
+
+		//	...
 		if( $hit ){
 			OP()->Blacklist("op-unit-notfound: $path");
 		}
