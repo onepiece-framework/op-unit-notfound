@@ -110,7 +110,7 @@ class NotFound implements IF_UNIT
 
 		//	...
 		$parsed = OP()->ParseURL($uri);
-		$path   = $parsed['path'];
+		$path   = $parsed['path'] ?? '';
 		$list   = file_get_contents(__DIR__.'/config/blacklist.txt');
 		foreach( explode('/',$path) as $temp ){
 			if( $hit = strpos($list, $temp) ){
