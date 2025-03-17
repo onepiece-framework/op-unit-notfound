@@ -53,6 +53,11 @@ class NotFound implements IF_UNIT
 			OP()->Blacklist("op-unit-notfound: count: {$count}");
 		}
 
+		//	Check if the client has saved the cookie.
+		if( $count < 1 ){
+			return;
+		}
+
 		//	...
 		if(!$url = $_SERVER['REQUEST_URI'] ?? null ){
 			return;
