@@ -68,7 +68,7 @@ class NotFound implements IF_UNIT
 
 		//	...
 		if( empty($parsed['ext']) ){
-			return;
+		//	return;
 		}
 
 		//	...
@@ -125,16 +125,32 @@ class NotFound implements IF_UNIT
 
 		//	...
 		switch( $parsed['ext'] ){
+			case 'php':
+			case 'cgi':
+			case 'asp':
+			case 'env':
 			case 'sql':
 			case 'zip':
 			case 'key':
 			case 'yml':
 			case 'action':
 			case 'config':
+			case 'prod':
+			case 'save':
 				$hit = true;
 				break;
 			default:
 				D($parsed);
+		}
+
+		//	...
+		switch( $_SERVER['HTTP_USER_AGENT'] ){
+			case 'Go-http-client/1.1':
+			case 'Mozilla/5.0 (compatible; MJ12bot/v1.4.8; http://mj12bot.com/)':
+				$hit = true;
+				break;
+			default:
+				D($_SERVER['HTTP_USER_AGENT']);
 		}
 
 		//	...
@@ -145,6 +161,7 @@ class NotFound implements IF_UNIT
 		//	...
 		if( $_SERVER['REMOTE_ADDR'] === gethostbyaddr($_SERVER['REMOTE_ADDR']) ){
 			OP()->Blacklist("op-unit-notfound: host name resolve is fail.");
+			$hit = true;
 		}
 
 		//	...
