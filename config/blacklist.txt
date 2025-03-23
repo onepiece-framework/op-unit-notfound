@@ -1,16 +1,17 @@
 
-.asp
-.cgi
 /.git/
-/aws.env
-/wp-login.php
+/.vscode/
 /wp-admin/
 /wp-content/
 /wp-includes/
-/composer.php
 /app/
 /admin/
 /assets/
+/config/
+/scripts/
 /plugins/
 /lib/
-/phpinfo.php
+/htdocs/
+/cgi-bin/
+/cache/
+
